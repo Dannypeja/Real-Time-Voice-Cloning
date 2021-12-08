@@ -1,0 +1,30 @@
+#!/usr/bin/awk -f
+
+BEGIN {
+	FS = "\t"
+	src = "de/wavs/"
+	dist = "de/processed/"
+print dist
+	while("cat de/validated-wav.tsv" | getline)
+	{
+		if($4 < 2 || $5 > 0) continue
+		client_id = $1
+		mp3path = $2
+		sub(/wav/, "txt", $2)
+		sentence = $3
+		up_votes = $4
+		down_votes = $5
+		age = $6
+		gender = $7
+		accent = $8
+		locale = $9
+		segment = $10
+		if(system("test -e "src mp3path) == 0)
+		{
+			system("mkdir -p "dist client_id"/book0/wavs/")
+			system("cp "src mp3path" "dist client_id"/book0/wavs/")
+			system("echo " sentence ">" dist client_id"/book0/wavs/"$2)
+			printf("Created entries for %s\n", client_id)
+		}
+	}
+}
