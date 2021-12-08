@@ -169,7 +169,7 @@ def preprocess_commonVoice(datasets_root: Path, out_dir: Path, skip_existing=Fal
         if not dataset_root:
             return
 
-        speaker_dirs = list(dataset_root.glob("mix/*"))
+        speaker_dirs = list(dataset_root.glob("forEncoder/*"))
         print(speaker_dirs)
         _preprocess_speaker_dirs(
             speaker_dirs,

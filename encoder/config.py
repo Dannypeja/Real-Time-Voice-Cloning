@@ -8,7 +8,7 @@ librispeech_datasets = {
 }
 mailabs_datasets = {"train": {"other": ["de_DE/by_book"]}}
 
-commonVoice_datasets = {"train": {"other": ["commonVoice"]}}
+commonVoice_datasets = {"train": {"other": ["commonVoice/de"]}}
 
 libritts_datasets = {
     "train": {
