@@ -7,7 +7,7 @@ BEGIN {
 print dist
 	while("cat de/validated-wav.tsv" | getline)
 	{
-		if($4 < 2 || $5 > 0) continue
+		if($4 < 0 || $5 > 0) continue
 		client_id = $1
 		mp3path = $2
 		sub(/wav/, "txt", $2)

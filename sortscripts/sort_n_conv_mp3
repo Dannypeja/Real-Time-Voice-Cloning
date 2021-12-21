@@ -1,0 +1,33 @@
+#!/usr/bin/awk -f
+
+BEGIN {
+	FS = "\t"
+	src = "../../Datasets/commonVoice/de/clips/"
+	dest = "../../Datasets/commonVoice/de/forEncoder/"
+print src
+print dest
+	while("cat ../../Datasets/commonVoice/de/validated-cleaned.tsv" | getline)
+	{
+		if($4 < 0 || $5 > 0) continue
+		client_id = $1
+		mp3path = $2
+		flacpath = mp3path
+		sub(/mp3/, "flac", flacpath)
+		sub(/mp3/, "txt", $2)
+		sentence = $3
+		up_votes = $4
+		down_votes = $5
+		age = $6
+		gender = $7
+		accent = $8
+		locale = $9
+		segment = $10
+		if(system("test -e "src mp3path) == 0)
+		{
+			system("mkdir -p "dest client_id"/book0/wavs/")
+			system("ffmpeg -n -i "src mp3path" "dest client_id"/book0/wavs/"flacpath "&& rm "src mp3path)
+			system("echo " sentence ">" dest client_id"/book0/wavs/"$2)
+			printf("Created entries for %s\n", client_id)
+		}
+	}
+}

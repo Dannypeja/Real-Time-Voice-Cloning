@@ -176,7 +176,7 @@ def preprocess_commonVoice(datasets_root: Path, out_dir: Path, skip_existing=Fal
             dataset_name,
             datasets_root,
             out_dir,
-            "wav",
+            "flac",
             skip_existing,
             logger,
         )
