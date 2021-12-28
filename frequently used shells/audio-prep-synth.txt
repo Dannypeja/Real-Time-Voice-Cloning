@@ -1,0 +1,1 @@
+python synthesizer_preprocess_audio.py '/Volumes/Samsung_2/Datasets/' --subfolders de_DE/by_book/female,de_DE/by_book/male,de_DE/by_book/mix,forSynthesizer --dataset "" --no_alignments --wav_dir -o /Volumes/Samsung_2/datasets-prep/synthesizer

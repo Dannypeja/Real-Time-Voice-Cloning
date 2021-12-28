@@ -33,6 +33,7 @@ if __name__ == "__main__":
         "Name of the dataset directory to process.")
     parser.add_argument("--subfolders", type=str, default="train-clean-100, train-clean-360", help=\
         "Comma-separated list of subfolders to process inside your dataset directory")
+    parser.add_argument("--wav_dir", action="store_true", help="Does the dataset contain a wav dir?")
     args = parser.parse_args()
 
     # Process the arguments

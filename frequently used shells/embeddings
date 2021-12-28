@@ -1,0 +1,1 @@
+python synthesizer_preprocess_embeds.py E:\Datasets\SV2TTS\synthesizer ww encoder/saved_models/my_run.pt
